@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Only</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <!-- Navigation Header -->
+    <%- include('partials/menu') %>
+    <!-- this page will be displayed is the user is logged in and a club member -->
+    <!-- 1. user trying to be an admin -->
+    <!-- 2. user is already an admin, show something different -->
+    <div class="content">
+      <p class="admin-only-header">Woohoo, you are an admin!</p>
+      <p class="admin-only-p">
+        You have proven yourself to be a musician of fine taste!
+      </p>
+      <div class="container">
+        <div class="plate">
+          <div class="black">
+            <div class="border">
+              <div class="white">
+                <div class="center"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="player">
+          <div class="rect"></div>
+          <div class="circ"></div>
+        </div>
+      </div>
+      <p class="admin-only-p">
+        ...which means you can now delete other users' messages. Yay.
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Members Only Chat</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <!-- Navigation Header -->
+    <%- include('partials/menu') %>
+    <div class="content">
+      <div class="chat-box">
+        <div class="chat-header">Chatter</div>
+        <div class="message-box">
+          <% if (messages && messages.length > 0) { %> <%
+          messages.forEach((message) => { %> <% if (message.author_id ==
+          user.id) { %>
+          <!-- OUTGOING: Delete button LEFT, message RIGHT -->
+          <div class="message-row outgoing">
+            <% if (user && user.is_admin) { %>
+            <form
+              method="POST"
+              action="/delete-message/<%= message.id %>"
+              class="delete-form"
+            >
+              <button type="submit" class="delete-btn">🗑️</button>
+            </form>
+            <% } %>
+
+            <div class="message-bubble">
+              <span class="username">@<%= message.username %></span>
+              <div class="message-content"><%= message.message_content %></div>
+              <div class="created">
+                <%= new Date(message.created_at).toLocaleString() %>
+              </div>
+            </div>
+          </div>
+          <% } else { %>
+          <!-- INCOMING: Message LEFT, delete button RIGHT -->
+          <div class="message-row incoming">
+            <div class="message-bubble">
+              <span class="username">@<%= message.username %></span>
+              <div class="message-content"><%= message.message_content %></div>
+              <div class="created">
+                <%= new Date(message.created_at).toLocaleString() %>
+              </div>
+            </div>
+
+            <% if (user && user.is_admin) { %>
+            <form
+              method="POST"
+              action="/delete-message/<%= message.id %>"
+              class="delete-form"
+            >
+              <button type="submit" class="delete-btn">🗑️</button>
+            </form>
+            <% } %>
+          </div>
+          <% } %> <% }) %> <% } else { %>
+          <p>No chatters yet...</p>
+          <% } %>
+        </div>
+
+        <% if (user && user.is_member) { %>
+        <div class="chat-footer">
+          <form class="type-message" method="POST" action="/new-message">
+            <input
+              placeholder="Type your message here..."
+              type="text"
+              name="message_content"
+              id="message-content"
+              required
+            />
+            <button class="reply-submit" type="submit">⌲</button>
+          </form>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <!-- Navigation Header -->
+    <%- include('partials/menu') %>
+
+    <div class="content">
+      <div class="admin-header">Be an admin!</div>
+      <p class="admin-instruction">
+        Name my favorite composer (hint: I love their A Major Violin Sonata)
+      </p>
+      <form action="/admin" method="POST" class="admin-form" id="admin-form">
+        <div class="letter-input" id="letter-input">
+          <div>
+            <% for (let i = 0; i < 6; i++) { %>
+            <input
+              type="text"
+              maxlength="1"
+              class="letter-box"
+              name="letter<%= i %>"
+            />
+
+            <% } %>
+          </div>
+
+          <input type="hidden" name="answer" id="answer-field" />
+          <button type="submit" class="check-answer">Check</button>
+        </div>
+      </form>
+      <div id="error-message" class="error-message">
+        Incorrect answer! Please try again.
+      </div>
+    </div>
+    <script>
+      const form = document.getElementById("admin-form");
+      const errorMessage = document.getElementById("error-message");
+      const inputs = document.querySelectorAll(".letter-box");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let combined = "";
+        inputs.forEach((box) => {
+          combined += box.value;
+        });
+        // Check answer client-side
+        if (combined.toLowerCase() === "brahms") {
+          // Correct answer - submit to server
+          document.getElementById("answer-field").value = combined;
+          form.submit();
+        } else {
+          // Incorrect answer - show error and clear inputs
+          showError();
+          clearInputs();
+        }
+      });
+
+      function showError() {
+        errorMessage.classList.add("show");
+
+        // Hide error after 3 seconds
+        setTimeout(() => {
+          errorMessage.classList.remove("show");
+        }, 3000);
+      }
+
+      function clearInputs() {
+        inputs.forEach((input) => {
+          input.value = "";
+        });
+        inputs[0].focus(); // Focus first input
+      }
+      inputs.forEach((input, idx) => {
+        input.addEventListener("input", () => {
+          if (input.value.length === 1 && idx < inputs.length - 1) {
+            inputs[idx + 1].focus();
+          }
+        });
+
+        input.addEventListener("input", () => {
+          errorMessage.classList.remove("show");
+        });
+      });
+    </script>
+  </body>
+</html>

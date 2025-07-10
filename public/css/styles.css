@@ -1,0 +1,1417 @@
+@import url("https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Just+Another+Hand&family=Pacifico&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-color: #e8e8e8;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Menu */
+header {
+  font-family: "Just Another Hand", cursive;
+  font-weight: 400;
+  font-size: 60px;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 6px 12px 0px 12px;
+}
+
+.logo {
+  cursor: pointer;
+}
+.logo-icon,
+.profile-icon {
+  width: 70px;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Homepage */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.club-name {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 150px;
+}
+
+.definition {
+  font-family: "Covered By Your Grace", cursive;
+  font-weight: 400;
+  font-size: 30px;
+  font-style: normal;
+}
+
+.definition span {
+  color: #1e1e1e;
+}
+
+ul {
+  position: relative;
+  display: flex;
+  gap: 25px;
+}
+
+.chat-emoji {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0); /* Original position */
+  }
+  40% {
+    transform: translateY(-20px); /* Move up */
+  }
+  60% {
+    transform: translateY(-5px); /* Slightly back down */
+  }
+}
+ul li {
+  position: relative;
+  list-style: none;
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 60px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+}
+
+ul li:hover {
+  width: 180px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0);
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 60px;
+  background: linear-gradient(45deg, var(--i), var(--j));
+  opacity: 0;
+  transition: 0.5s;
+}
+
+ul li:hover::before {
+  opacity: 1;
+}
+
+ul li::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 60px;
+  background: linear-gradient(45deg, var(--i), var(--j));
+  transition: 0.5s;
+  filter: blur(15px);
+  z-index: -1;
+  opacity: 0;
+}
+
+ul li:hover::after {
+  opacity: 0.5;
+}
+
+ul li .icon {
+  color: #777;
+  font-size: 1.75em;
+  transition: 0.5s;
+  transition-delay: 0.25s;
+}
+
+ul li:hover .icon {
+  transform: scale(0);
+  color: #fff;
+  transition-delay: 0s;
+}
+
+ul li span {
+  position: absolute;
+}
+
+ul li .title {
+  color: #fff;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transform: scale(0);
+  transition: 0.5s;
+  transition-delay: 0s;
+}
+
+ul li:hover .title {
+  transform: scale(1);
+  transition-delay: 0.25s;
+}
+
+/* Log in Form */
+/* From Uiverse.io by Yaya12085 */
+.login-form {
+  background-color: #fff;
+  display: block;
+  padding: 1rem;
+  max-width: 350px;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.login-form-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: #000;
+}
+
+.login-input-container {
+  position: relative;
+}
+
+.login-input-container input,
+.login-form button {
+  outline: none;
+  border: 1px solid #e5e7eb;
+  margin: 8px 0;
+}
+
+.login-input-container input {
+  background-color: #fff;
+  padding: 1rem;
+  padding-right: 3rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: 300px;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.login-input-container span {
+  display: grid;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  place-content: center;
+}
+
+.login-input-container span svg {
+  color: #9ca3af;
+  width: 1rem;
+  height: 1rem;
+}
+
+.login-submit {
+  display: block;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  background-color: #44624a;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+}
+
+.signup-link {
+  color: #6b7280;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-align: center;
+}
+
+.signup-link a {
+  text-decoration: underline;
+}
+
+/* Register Form */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.register-title {
+  font-size: 28px;
+  color: #44624a;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.register-title::before,
+.register-title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: #44624a;
+}
+
+.register-title::before {
+  width: 18px;
+  height: 18px;
+  background-color: #44624a;
+}
+
+.register-title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.register-message,
+.register-signin {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 14px;
+}
+
+.register-signin {
+  text-align: center;
+}
+
+.register-signin a {
+  color: #44624a;
+}
+
+.register-signin a:hover {
+  text-decoration: underline #44624a;
+}
+
+.register-flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+.register-div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+.register-flex label {
+  flex: 1;
+}
+.register-form label {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.register-form label .input {
+  width: 100%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+#username,
+#password,
+#passwordConfirmation {
+  width: 100%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+.register-form label .input + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: grey;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.register-form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+
+.register-form label .input:focus + span,
+.register-form label .input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.register-form label .input:valid + span {
+  color: green;
+}
+
+.register-submit {
+  border: none;
+  outline: none;
+  background-color: #44624a;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: 0.3s ease;
+}
+
+.register-submit:hover {
+  background-color: #44624a;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* admin-only page */
+
+.admin-only-header {
+  font-size: 30px;
+}
+.admin-only-p {
+  margin: 20px;
+}
+/* record player */
+/* From Uiverse.io by TheAbieza */
+.container {
+  width: 175px;
+  height: 175px;
+  background-color: #abc4aa;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 5px 5px 0 0 #675d50;
+}
+
+.plate {
+  width: fit-content;
+}
+
+.plate .black,
+.plate .white,
+.plate .center,
+.plate .border {
+  border-radius: 100%;
+}
+
+.container,
+.plate .black,
+.plate .white,
+.plate .border {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plate .black {
+  width: 150px;
+  height: 150px;
+  background-color: #675d50;
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.plate .white {
+  width: 70px;
+  height: 70px;
+  background-color: #f3deba;
+}
+
+.plate .center {
+  width: 20px;
+  height: 20px;
+  background-color: #675d50;
+}
+
+.plate .border {
+  width: 111px;
+  height: 111px;
+  border-top: 3px solid #f3deba;
+  border-bottom: 3px solid #f3deba;
+  border-left: 3px solid #675d50;
+  border-right: 3px solid #675d50;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: fit-content;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  rotate: -45deg;
+}
+
+.player .circ {
+  width: 25px;
+  height: 25px;
+  background-color: #f3deba;
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.player .rect {
+  width: 10px;
+  height: 55px;
+  background-color: #f3deba;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5px;
+}
+
+/* members only page  */
+.member-only-content {
+}
+
+.become-admin-text {
+  margin-bottom: 20px;
+}
+/* From Uiverse.io by vinodjangid07 */
+.become-admin {
+  position: relative;
+  width: 150px;
+  height: 55px;
+  border-radius: 45px;
+  border: none;
+  background-color: #598258;
+  color: #ffffff;
+  box-shadow: 0px 10px 10px #658665 inset, 0px 5px 10px rgba(5, 5, 5, 0.212),
+    0px -10px 10px #314e30 inset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.become-admin::before {
+  width: 70%;
+  height: 2px;
+  position: absolute;
+  background-color: rgba(250, 250, 250, 0.678);
+  content: "";
+  filter: blur(1px);
+  top: 7px;
+  border-radius: 50%;
+}
+
+.become-admin::after {
+  width: 70%;
+  height: 2px;
+  position: absolute;
+  background-color: rgba(250, 250, 250, 0.137);
+  content: "";
+  filter: blur(1px);
+  bottom: 7px;
+  border-radius: 50%;
+}
+
+.become-admin:hover {
+  animation: jello-horizontal 0.9s both;
+}
+
+@keyframes jello-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/* From Uiverse.io by Emmaline-ozi */
+.main {
+  position: relative;
+  width: 23.5vmax;
+  height: 23.5vmax;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.leg {
+  position: absolute;
+  bottom: 0;
+  width: 2vmax;
+  height: 2.125vmax;
+}
+
+.paw {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 1.95vmax;
+  height: 1.8vmax;
+  overflow: hidden;
+}
+
+.paw::before {
+  content: "";
+  position: absolute;
+  width: 5vmax;
+  height: 3vmax;
+  border-radius: 50%;
+}
+
+.top {
+  position: absolute;
+  bottom: 0;
+  left: 0.75vmax;
+  height: 4.5vmax;
+  width: 2.625vmax;
+  border-top-left-radius: 1.425vmax;
+  border-top-right-radius: 1.425vmax;
+  transform-origin: bottom right;
+  transform: rotateZ(90deg) translateX(-0.1vmax) translateY(1.5vmax);
+  z-index: -1;
+  background-image: linear-gradient(70deg, transparent 20%, #deac80 20%);
+}
+
+.dog {
+  position: relative;
+  width: 20vmax;
+  height: 8vmax;
+}
+
+.dog::before {
+  content: "";
+  position: absolute;
+  bottom: -0.75vmax;
+  right: -0.15vmax;
+  width: 100%;
+  height: 1.5vmax;
+  background-color: #b5c18e;
+  border-radius: 50%;
+  z-index: -1000;
+  animation: shadow 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+}
+
+.dog__head {
+  position: absolute;
+  left: 4.5vmax;
+  bottom: 0;
+  width: 8vmax;
+  height: 5vmax;
+  border-top-left-radius: 4.05vmax;
+  border-top-right-radius: 4.05vmax;
+  border-bottom-right-radius: 3.3vmax;
+  border-bottom-left-radius: 3.3vmax;
+  background-color: #deac80;
+  animation: head 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+}
+
+.dog__head-c {
+  position: absolute;
+  left: 1.5vmax;
+  bottom: 0;
+  width: 9.75vmax;
+  height: 8.25vmax;
+  animation: head 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+  z-index: -1;
+}
+
+.dog__snout {
+  position: absolute;
+  left: -1.5vmax;
+  bottom: 0;
+  width: 7.5vmax;
+  height: 3.75vmax;
+  border-top-right-radius: 3vmax;
+  border-bottom-right-radius: 3vmax;
+  border-bottom-left-radius: 4.5vmax;
+  background-color: #f7dcb9;
+  animation: snout 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+}
+
+.dog__snout::before {
+  content: "";
+  position: absolute;
+  left: -0.1125vmax;
+  top: -0.15vmax;
+  width: 1.875vmax;
+  height: 1.125vmax;
+  border-top-right-radius: 3vmax;
+  border-bottom-right-radius: 3vmax;
+  border-bottom-left-radius: 4.5vmax;
+  background-color: #6c4e31;
+  animation: snout-b 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+}
+
+.dog__nose {
+  position: absolute;
+  top: -1.95vmax;
+  left: 40%;
+  width: 0.75vmax;
+  height: 2.4vmax;
+  border-radius: 0.525vmax;
+  transform-origin: bottom;
+  transform: rotateZ(10deg);
+  background-color: #d7dbd2;
+}
+
+.dog__eye-l,
+.dog__eye-r {
+  position: absolute;
+  top: -0.9vmax;
+  width: 0.675vmax;
+  height: 0.375vmax;
+  border-radius: 50%;
+  background-color: #1c3130;
+  animation: eye 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+}
+
+.dog__eye-l {
+  left: 27%;
+}
+
+.dog__eye-r {
+  left: 65%;
+}
+
+.dog__ear-l,
+.dog__ear-r {
+  position: absolute;
+  width: 5vmax;
+  height: 3.3vmax;
+  border-top-left-radius: 3.3vmax;
+  border-top-right-radius: 3vmax;
+  border-bottom-right-radius: 5vmax;
+  border-bottom-left-radius: 5vmax;
+  background-color: #deac80;
+}
+
+.dog__ear-l {
+  top: 1.5vmax;
+  left: 10vmax;
+  transform-origin: bottom left;
+  transform: rotateZ(-50deg);
+  z-index: -1;
+  animation: ear-l 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+}
+
+.dog__ear-r {
+  top: 1.5vmax;
+  right: 3vmax;
+  transform-origin: bottom right;
+  transform: rotateZ(25deg);
+  z-index: -2;
+  animation: ear-r 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+}
+
+.dog__body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 0.3vmax;
+  left: 6vmax;
+  width: 18vmax;
+  height: 4vmax;
+  border-top-left-radius: 3vmax;
+  border-top-right-radius: 6vmax;
+  border-bottom-right-radius: 1.5vmax;
+  border-bottom-left-radius: 6vmax;
+  background-color: #914f1e;
+  z-index: -2;
+  animation: body 10s cubic-bezier(0.3, 0.41, 0.18, 1.01) infinite;
+}
+
+.dog__tail {
+  position: absolute;
+  top: 20px;
+  right: -1.5vmax;
+  height: 3vmax;
+  width: 4vmax;
+  background-color: #914f1e;
+  border-radius: 1.5vmax;
+}
+
+.dog__paws {
+  position: absolute;
+  bottom: 0;
+  left: 7.5vmax;
+  width: 10vmax;
+  height: 3vmax;
+}
+
+.dog__bl-leg {
+  left: -3vmax;
+  z-index: -10;
+}
+
+.dog__bl-paw::before {
+  background-color: #fffbe6;
+}
+
+.dog__bl-top {
+  background-image: linear-gradient(80deg, transparent 20%, #deac80 20%);
+}
+
+.dog__fl-leg {
+  z-index: 10;
+  left: 0;
+}
+
+.dog__fl-paw::before {
+  background-color: #fffbe6;
+}
+
+.dog__fr-leg {
+  right: 0;
+}
+
+.dog__fr-paw::before {
+  background-color: #fffbe6;
+}
+
+/*==============================*/
+
+@keyframes head {
+  0%,
+  10%,
+  20%,
+  26%,
+  28%,
+  90%,
+  100% {
+    height: 8.25vmax;
+    bottom: 0;
+    transform-origin: bottom right;
+    transform: rotateZ(0);
+  }
+  5%,
+  15%,
+  22%,
+  24%,
+  30% {
+    height: 8.1vmax;
+  }
+  32%,
+  50% {
+    height: 8.25vmax;
+  }
+  55%,
+  60% {
+    bottom: 0.75vmax;
+    transform-origin: bottom right;
+    transform: rotateZ(0);
+  }
+  70%,
+  80% {
+    bottom: 0.75vmax;
+    transform-origin: bottom right;
+    transform: rotateZ(10deg);
+  }
+}
+
+@keyframes body {
+  0%,
+  10%,
+  20%,
+  26%,
+  28%,
+  32%,
+  100% {
+    height: 7.2vmax;
+  }
+  5%,
+  15%,
+  22%,
+  24%,
+  30% {
+    height: 7.05vmax;
+  }
+}
+
+@keyframes ear-l {
+  0%,
+  10%,
+  20%,
+  26%,
+  28%,
+  82%,
+  100% {
+    transform: rotateZ(-50deg);
+  }
+  5%,
+  15%,
+  22%,
+  24% {
+    transform: rotateZ(-48deg);
+  }
+  30%,
+  31% {
+    transform: rotateZ(-30deg);
+  }
+  32%,
+  80% {
+    transform: rotateZ(-60deg);
+  }
+}
+
+@keyframes ear-r {
+  0%,
+  10%,
+  20%,
+  26%,
+  28% {
+    transform: rotateZ(20deg);
+  }
+  5%,
+  15%,
+  22%,
+  24% {
+    transform: rotateZ(18deg);
+  }
+  30%,
+  31% {
+    transform: rotateZ(10deg);
+  }
+  32% {
+    transform: rotateZ(25deg);
+  }
+}
+
+@keyframes snout {
+  0%,
+  10%,
+  20%,
+  26%,
+  28%,
+  82%,
+  100% {
+    height: 3.75vmax;
+  }
+  5%,
+  15%,
+  22%,
+  24% {
+    height: 3.45vmax;
+  }
+}
+
+@keyframes snout-b {
+  0%,
+  10%,
+  20%,
+  26%,
+  28%,
+  98%,
+  100% {
+    width: 1.875vmax;
+  }
+  5%,
+  15%,
+  22%,
+  24% {
+    width: 1.8vmax;
+  }
+  34%,
+  98% {
+    width: 1.275vmax;
+  }
+}
+
+@keyframes shadow {
+  0%,
+  10%,
+  20%,
+  26%,
+  28%,
+  30%,
+  84%,
+  100% {
+    width: 99%;
+  }
+  5%,
+  15%,
+  22%,
+  24% {
+    width: 101%;
+  }
+  34%,
+  81% {
+    width: 96%;
+  }
+}
+
+@keyframes eye {
+  0%,
+  30% {
+    width: 0.675vmax;
+    height: 0.3vmax;
+  }
+  32%,
+  59%,
+  90%,
+  100% {
+    width: 0.525vmax;
+    height: 0.525vmax;
+    transform: translateY(0);
+  }
+  60%,
+  75% {
+    transform: translateY(-0.3vmax);
+  }
+  80%,
+  85% {
+    transform: translateY(0.15vmax);
+  }
+}
+
+/* chat */
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 600px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  overflow-y: auto; /* Enables vertical scrolling */
+}
+
+.chat-header {
+  padding: 10px;
+  background-color: rgb(68, 98, 74);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: white;
+  font-weight: bolds;
+}
+.message-box {
+  display: flex;
+  flex-direction: column; /* Stack messages vertically */
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+  gap: 10px; /* Space between message rows */
+  margin-bottom: 20px;
+}
+.message-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.message-bubble {
+  padding: 12px 18px 12px 18px;
+  border-radius: 5px;
+  width: fit-content;
+  /* max-width: 70%; */
+  min-width: 50px;
+  background-color: #e1e1e1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.delete-form {
+  flex-shrink: 0; /* Prevents button from shrinking */
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  opacity: 0.7;
+  width: 24px;
+  height: 24px;
+}
+
+.type-message {
+  padding: 10px;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-shrink: 0;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.type-message input[type="text"] {
+  flex-grow: 1;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+}
+
+.type-message button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #44624a;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.type-message button:hover {
+  background-color: rgb(190, 230, 211);
+  color: #000;
+}
+
+.incoming {
+  justify-content: flex-start;
+}
+
+.outgoing {
+  justify-content: flex-end;
+}
+
+.outgoing .message-bubble {
+  background-color: #b7c9b7;
+}
+.message-content {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+}
+
+@keyframes chatAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-box .message-bubble {
+  animation: chatAnimation 0.3s ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+}
+
+.chat-box .message-bubble:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+.chat-box .message-bubble:nth-child(odd) {
+  animation-delay: 0.3s;
+}
+
+/* scrollbar styling */
+.chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.chat-box::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Ensure messages have some spacing */
+.message-bubble {
+}
+
+/* message bubble styling */
+
+.username {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.message-content {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.created {
+  font-size: 10px;
+}
+
+/* profile card */
+.profile-header {
+  display: flex;
+  align-items: center;
+  /* gap: 20px; */
+}
+.profile-member-status,
+.profile-admin-status {
+  display: flex;
+  gap: 3px;
+}
+
+.profile-card span {
+  font-weight: bold;
+}
+
+.profile-btns {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.logout-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: #f0f2f5;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* From Uiverse.io by narmesh_sah */
+.profile-card {
+  position: relative;
+  width: 440px;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(48px);
+  backdrop-filter: blur(48px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 12px 12px 12px -20px rgba(0, 0, 0, 0.3);
+  transform: perspective(1000px) scale(0.8); /*adjust the scale to view properly*/
+  transform-style: preserve-3d;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #f0f2f5;
+  margin: 0 auto 1rem;
+  overflow: hidden;
+  border: 3px solid white;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-image::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 96px;
+  background-color: #7d988a;
+  border-radius: 20px 20px 0 0;
+  z-index: -1;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  /* margin-bottom: 1.5rem; */
+  align-items: center;
+}
+
+.profile-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.25rem;
+}
+
+.profile-title {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.profile-bio {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #777;
+  line-height: 1.4;
+  /* margin-bottom: 1.5rem; */
+}
+
+.cta-button {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  background: #7d988a;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.cta-button:hover {
+  background: #4d5d54;
+  transform: translateY(-2px);
+}
+
+/* join club form */
+
+.error-message {
+  background-color: #ffe6e6;
+  border: 1px solid #ff9999;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px 0;
+  color: #cc0000;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.error-message.show {
+  visibility: visible;
+  opacity: 1;
+}
+.join-club-header,
+.admin-header {
+  font-size: 24px;
+}
+.letter-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.check-answer {
+  margin-top: 20px;
+}
+
+.join-club-form,
+.admin-form {
+  padding-top: 10px;
+}
+.join-club-form input,
+.admin-form input {
+  border: none;
+  text-align: center;
+  width: 48px;
+  height: 48px;
+  font-size: 36px;
+  background-color: #f3f3f3;
+  margin-right: 5px;
+}
+
+.letter-input input:focus {
+  border: 1px solid #573d8b;
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

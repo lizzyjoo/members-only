@@ -1,0 +1,15 @@
+<header>
+  <div class="logo">
+    <a href="/" class="nav-item home text-black">
+      <img class="logo-icon" src="/images/logo.png" alt="logo" />
+    </a>
+  </div>
+  <div class="options">
+    <a href="/join-club" class="nav-item join-club">Join</a>
+    <a href="/new-message" class="nav-item new-message">Chat</a>
+    <a href="/admin" class="nav-item admin">Admin</a>
+    <a href="<%= user ? '/profile' : '/log-in' %>" class="nav-item admin"
+      ><img class="profile-icon" src="/images/profile.png" alt="user-profile"
+    /></a>
+  </div>
+</header>

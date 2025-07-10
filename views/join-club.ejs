@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join Our Club</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <!-- Navigation Header -->
+    <%- include('partials/menu') %>
+
+    <div class="content">
+      <div class="join-club-header">Join our club!</div>
+      <p class="join-club-instruction">
+        If you get this question right, you will be granted access to our silly
+        club.
+      </p>
+      <p>I am a classical musician so....</p>
+      <p class="join-club-prompt">
+        This composer has a banger C Major String Quintet. His Grand Duo for
+        Violin & Piano Sonata is awesome.
+      </p>
+
+      <form
+        action="/join-club"
+        method="POST"
+        class="join-club-form"
+        id="join-club-form"
+      >
+        <div class="letter-input" id="letter-input">
+          <div>
+            <% for (let i = 0; i < 8; i++) { %>
+            <input
+              type="text"
+              maxlength="1"
+              class="letter-box"
+              name="letter<%= i %>"
+            />
+            <% } %>
+          </div>
+
+          <input type="hidden" name="answer" id="answer-field" />
+          <button type="submit" class="check-answer">Check</button>
+        </div>
+      </form>
+      <div id="error-message" class="error-message">
+        Incorrect answer! Please try again.
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const form = document.getElementById("join-club-form");
+    const errorMessage = document.getElementById("error-message");
+    const inputs = document.querySelectorAll(".letter-box");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent default submission
+
+      // Combine letters
+      let combined = "";
+      inputs.forEach((box) => {
+        combined += box.value;
+      });
+
+      // Check answer client-side
+      if (combined.toLowerCase() === "schubert") {
+        // Correct answer - submit to server
+        document.getElementById("answer-field").value = combined;
+        form.submit();
+      } else {
+        // Incorrect answer - show error and clear inputs
+        showError();
+        clearInputs();
+      }
+    });
+
+    function showError() {
+      errorMessage.classList.add("show");
+
+      // Hide error after 3 seconds
+      setTimeout(() => {
+        errorMessage.classList.remove("show");
+      }, 3000);
+    }
+
+    function clearInputs() {
+      inputs.forEach((input) => {
+        input.value = "";
+      });
+      inputs[0].focus(); // Focus first input
+    }
+
+    // Auto-advance to next input
+    inputs.forEach((input, idx) => {
+      input.addEventListener("input", () => {
+        if (input.value.length === 1 && idx < inputs.length - 1) {
+          inputs[idx + 1].focus();
+        }
+      });
+
+      input.addEventListener("input", () => {
+        errorMessage.classList.remove("show");
+      });
+    });
+  </script>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chatter</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <!-- Navigation Header -->
+    <%- include('partials/menu') %>
+    <div class="content">
+      <div class="club-name">Chatter</div>
+      <div class="definition">
+        <span class="def-verb">verb.</span> talk rapidly or incessantly about
+        trivial matters.
+      </div>
+      <a href="/new-message"
+        ><ul>
+          <li class="chat-emoji" style="--i: #44624a; --j: #8ba888">
+            <span class="icon">💬</span>
+            <!-- make it conditional, if user is logged in but not a member -->
+            <!-- if a user is not logged in: login page -->
+            <!-- if a user is logged in and a member: chat page -->
+            <span class="title">Chatter</span>
+          </li>
+        </ul></a
+      >
+    </div>
+  </body>
+</html>
