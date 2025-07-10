@@ -218,7 +218,7 @@ router.post(
 router.post("/delete-message/:id", ensureAdmin, async (req, res) => {
   // Only admins can reach this code
   await pool.query("DELETE FROM messages WHERE id = $1", [req.params.id]);
-  res.redirect("/");
+  res.redirect("/new-message");
 });
 /**
  * -------------- GET ROUTES ----------------
